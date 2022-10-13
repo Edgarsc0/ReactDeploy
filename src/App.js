@@ -61,8 +61,17 @@ function RecipeComponent() {
   const [articulos, setArticulos] = useState([])
   const [recuperado, setRecuperado] = useState(false)
   function mostrarTitulo() {
-    const mostrar=()=>{
-      window.location.href=`${process.env.PUBLIC_URL}/${articulos.meals[0].idMeal}`;
+    const Mostrar=(props)=>{
+      const url=`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${props.id}`;
+      fetch(url)
+        .then((response) => {
+          return response.json()
+        })
+        .then((articulos) => {
+          return (
+            <h1>Hola</h1>
+          )
+        })
     }
     return (
       <div>
@@ -70,7 +79,10 @@ function RecipeComponent() {
           return(
             <>
               <h1 key={item.strMeal}>{item.strMeal}</h1>
-              <img key={"img-"+item.strMeal} onClick={mostrar} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
+              <img key={"img-"+item.strMeal} onClick={()=>{
+                sessionStorage.setItem("id",item.idMeal);
+                window.location.href="ReactDeploy/consulta";
+              }} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
               <hr key={"hr"}></hr>
             </>
           );

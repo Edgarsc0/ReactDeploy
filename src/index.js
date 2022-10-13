@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route exact path="/" element={<ex.Home/>} />
-        <Route exact path={process.env.PUBLIC_URL+"/:id"} element={<ex.DetailRecipeComponent/>}/>
+        <Route exact path="/consulta" element={<ex.DetailRecipeComponent/>}/>
       </Routes>
     </BrowserRouter>
   );
