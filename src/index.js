@@ -15,14 +15,29 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/ReactDeploy" element={<ex.Home/>} />
-        <Route exact path="/ReactDeploy/consulta" element={<ex.DetailRecipeComponent/>}/>
       </Routes>
     </BrowserRouter>
   );
 }
-root.render(
-  <App/>
-)
+function App2() {
+  console.log(process.env.PUBLIC_URL);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/ReactDeploy" element={<ex.DetailRecipeComponent/>} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+if(sessionStorage.getItem("json")==null){
+  root.render(
+    <App/>
+  )
+}else{
+  root.render(
+    <App2/>
+  )
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

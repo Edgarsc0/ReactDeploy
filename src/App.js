@@ -14,48 +14,9 @@ function Home(){
   )
 }
 function DetailRecipeComponent(){
-  const [articulos, setArticulos] = useState([]);
-  const [recuperado, setRecuperado] = useState(false);
-  function mostrarDetalles(){
-    return(
-      <div>
-        {articulos.meals.map(item=>{
-          return(
-            <>
-              <a href="/ReactDeploy">Regresar</a>
-              <h1>Origen: {item.strArea}</h1>
-              <h1>Categoria: {item.strCategory}</h1>
-              <h1 key={item.strMeal}>{item.strMeal}</h1>
-              <hr key={"hr"}></hr>
-              <h1>Instrucciones de preparación</h1>
-              <p>{item.strInstructions}</p>
-              <h3>Por si te ayuda...</h3>
-              <a href={item.strYoutube}>VideoTutorial</a><br></br><br></br>
-              <img key={"img-"+item.strMeal} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
-            </>
-          )
-        })}
-      </div>
-    )
-  }
-  const {id}=useParams();
-  useEffect(() => {
-    const url=`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
-    fetch(url)
-      .then((response) => {
-        return response.json()
-      })
-      .then((articulos) => {
-        setArticulos(articulos)
-        setRecuperado(true)
-      })
-  }, [])
-  if(recuperado){
-    return mostrarDetalles();
-  }else{
-    return (<div>recuperando datos...</div>)
-  }
-
+  return(
+    <h1>HOLA</h1>
+  )
 }
 function RecipeComponent() {
   const [articulos, setArticulos] = useState([])
@@ -80,8 +41,8 @@ function RecipeComponent() {
             <>
               <h1 key={item.strMeal}>{item.strMeal}</h1>
               <img key={"img-"+item.strMeal} onClick={()=>{
-                sessionStorage.setItem("id",item.idMeal);
-                window.location.href="/ReactDeploy/consulta";
+                sessionStorage.setItem("json",item);
+                window.location.href="/ReactDeploy"
               }} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
               <hr key={"hr"}></hr>
             </>
