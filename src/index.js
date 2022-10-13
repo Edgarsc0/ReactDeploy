@@ -19,23 +19,24 @@ function App() {
     </BrowserRouter>
   );
 }
-function App2() {
+function App2(props) {
   console.log(process.env.PUBLIC_URL);
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/ReactDeploy" element={<ex.DetailRecipeComponent/>} />
+        <Route exact path="/ReactDeploy" element={<ex.DetailRecipeComponent id={props.id}/>} />
       </Routes>
     </BrowserRouter>
   );
 }
-if(sessionStorage.getItem("json")==null){
+const info=sessionStorage.getItem("json");
+if(info==null){
   root.render(
     <App/>
   )
 }else{
   root.render(
-    <App2/>
+    <App2 id={info}/>
   )
 }
 

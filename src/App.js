@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
 function Home(){
   return(
     <>
@@ -13,27 +12,27 @@ function Home(){
     </>
   )
 }
-function DetailRecipeComponent(){
+function DetailRecipeComponent(props){
+  sessionStorage.clear();
+  const json=JSON.parse(props.id)
   return(
-    <h1>HOLA</h1>
+    <>
+      <h1><a href='/ReactDeploy'>REGRESAR</a></h1>
+      <h1>Origen: {json.strArea}</h1>
+      <h1>Categoria: {json.strCategory}</h1>
+      <h1>{json.strMeal}</h1>
+      <h3><a href={json.strYoutube}>Video de preparacion</a></h3>
+      <hr></hr>
+      <h2>Instrucciones de preparacion</h2>
+      <p>{json.strInstructions}</p>
+      <img src={json.strMealThumb}></img>
+    </>
   )
 }
 function RecipeComponent() {
   const [articulos, setArticulos] = useState([])
   const [recuperado, setRecuperado] = useState(false)
   function mostrarTitulo() {
-    const Mostrar=(props)=>{
-      const url=`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${props.id}`;
-      fetch(url)
-        .then((response) => {
-          return response.json()
-        })
-        .then((articulos) => {
-          return (
-            <h1>Hola</h1>
-          )
-        })
-    }
     return (
       <div>
         {articulos.meals.map(item=>{
@@ -41,7 +40,7 @@ function RecipeComponent() {
             <>
               <h1 key={item.strMeal}>{item.strMeal}</h1>
               <img key={"img-"+item.strMeal} onClick={()=>{
-                sessionStorage.setItem("json",item);
+                sessionStorage.setItem("json",JSON.stringify(item));
                 window.location.href="/ReactDeploy"
               }} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
               <hr key={"hr"}></hr>
