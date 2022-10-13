@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/ReactDeploy" element={<ex.Home/>} />
-        <Route path="/:id" element={<ex.DetailRecipeComponent/>}/>
+        <Route path="consulta/:id" element={<ex.DetailRecipeComponent/>}/>
       </Routes>
     </BrowserRouter>
   );

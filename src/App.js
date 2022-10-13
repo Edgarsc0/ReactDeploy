@@ -62,7 +62,7 @@ function RecipeComponent() {
   const [recuperado, setRecuperado] = useState(false)
   function mostrarTitulo() {
     const mostrar=()=>{
-      window.location.href=`/${articulos.meals[0].idMeal}`;
+      window.location.href=`consulta/${articulos.meals[0].idMeal}`;
     }
     return (
       <div>
