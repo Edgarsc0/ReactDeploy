@@ -9,6 +9,10 @@ function Home(){
       <RecipeComponent/>
       <RecipeComponent/>
       <RecipeComponent/>
+      <RecipeComponent/>
+      <RecipeComponent/>
+      <RecipeComponent/>
+      <RecipeComponent/>
     </>
   )
 }
