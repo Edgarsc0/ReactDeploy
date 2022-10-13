@@ -30,7 +30,7 @@ function DetailRecipeComponent(){
               <h1>Instrucciones de preparación</h1>
               <p>{item.strInstructions}</p>
               <h3>Por si te ayuda...</h3>
-              <a href={item.strYoutube}>VideoTutorial</a><br></br><br></br>
+              <a href={item.strYoutube}>VideoTutorial</a>
               <img key={"img-"+item.strMeal} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
             </>
           )
