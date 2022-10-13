@@ -81,7 +81,7 @@ function RecipeComponent() {
               <h1 key={item.strMeal}>{item.strMeal}</h1>
               <img key={"img-"+item.strMeal} onClick={()=>{
                 sessionStorage.setItem("id",item.idMeal);
-                window.location.href="ReactDeploy/consulta";
+                window.location.href="/consulta";
               }} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
               <hr key={"hr"}></hr>
             </>
