@@ -30,7 +30,7 @@ function DetailRecipeComponent(){
               <h1>Instrucciones de preparación</h1>
               <p>{item.strInstructions}</p>
               <h3>Por si te ayuda...</h3>
-              <a href={item.strYoutube}>VideoTutorial</a>
+              <a href={item.strYoutube}>VideoTutorial</a><br></br><br></br>
               <img key={"img-"+item.strMeal} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
             </>
           )
@@ -61,13 +61,16 @@ function RecipeComponent() {
   const [articulos, setArticulos] = useState([])
   const [recuperado, setRecuperado] = useState(false)
   function mostrarTitulo() {
+    const mostrar=()=>{
+      window.location.href=`ReactDeploy/${articulos.meals[0].idMeal}`;
+    }
     return (
       <div>
         {articulos.meals.map(item=>{
           return(
             <>
               <h1 key={item.strMeal}>{item.strMeal}</h1>
-              <img key={"img-"+item.strMeal} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
+              <img key={"img-"+item.strMeal} onClick={mostrar} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
               <hr key={"hr"}></hr>
             </>
           );
