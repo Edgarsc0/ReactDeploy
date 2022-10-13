@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<ex.Home/>} />
+        <Route exact path="/ReactDeploy" element={<ex.Home/>} />
         <Route exact path="/:id" element={<ex.DetailRecipeComponent/>}/>
       </Routes>
     </BrowserRouter>
