@@ -12,10 +12,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 function App() {
   console.log(process.env.PUBLIC_URL);
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<ex.Home/>} />
-        <Route exact path="/consulta" element={<ex.DetailRecipeComponent/>}/>
+        <Route exact path="/ReactDeploy" element={<ex.Home/>} />
+        <Route exact path="/ReactDeploy/consulta" element={<ex.DetailRecipeComponent/>}/>
       </Routes>
     </BrowserRouter>
   );
