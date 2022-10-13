@@ -22,7 +22,7 @@ function DetailRecipeComponent(){
         {articulos.meals.map(item=>{
           return(
             <>
-              <a href="/">Regresar</a>
+              <a href="/ReactDeploy">Regresar</a>
               <h1>Origen: {item.strArea}</h1>
               <h1>Categoria: {item.strCategory}</h1>
               <h1 key={item.strMeal}>{item.strMeal}</h1>
