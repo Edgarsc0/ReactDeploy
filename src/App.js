@@ -61,16 +61,13 @@ function RecipeComponent() {
   const [articulos, setArticulos] = useState([])
   const [recuperado, setRecuperado] = useState(false)
   function mostrarTitulo() {
-    const mostrar=()=>{
-      window.location.href=`consulta/${articulos.meals[0].idMeal}`;
-    }
     return (
       <div>
         {articulos.meals.map(item=>{
           return(
             <>
               <h1 key={item.strMeal}>{item.strMeal}</h1>
-              <img key={"img-"+item.strMeal} onClick={mostrar} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
+              <img key={"img-"+item.strMeal} alt={"img/"+item.strMeal} src={item.strMealThumb}></img>
               <hr key={"hr"}></hr>
             </>
           );
